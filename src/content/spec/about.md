@@ -1,7 +1,9 @@
 # About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
 
-::github{repo="saicaca/fuwari"}
+[misskey](https://misskey.la02.cc)\
+[La02w](https://github.com/la02w)
+
+::github{repo="la02w/pichub"}
 
 > ### Sources of images used in this site
 > - [Unsplash](https://unsplash.com/)
