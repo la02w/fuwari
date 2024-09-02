@@ -28,8 +28,7 @@ Minecraft 需要 Java 8 或者更高版本。 我们将会安装 Java 的 JRE �
 
 我们使用压缩包安装
 
-进入java版本模式构建工具网站[adoptium](https://adoptium.net/zh-CN/temurin/releases/?package=jre&os=linux&arch=x64&version=21)已经设定了java21、jre、linux、x64，可手动
-修改
+进入java构建网站[**adoptium**](https://adoptium.net/zh-CN/temurin/releases/?package=jre&os=linux&arch=x64&version=21)，当前链接已设定jre21、、linux、x64，可手动修改
 ```bash
 # 下载完成后使用scp上传到服务器
 scp ./OpenJDK*.tar.gz username@host:~/
@@ -37,6 +36,7 @@ scp ./OpenJDK*.tar.gz username@host:~/
 sudo mv OpenJDK*.tar.gz /usr/local/ && cd /usr/local
 # 解压文件
 sudo tar xzf OpenJDK*.tar.gz
+# ls -l 查看解压目录
 # 创建软连接到/usr/local/bin目录，并重命名放置冲突
 sudo ln -s /usr/local/jdk-21.0.4+7-jre/bin/java /usr/local/bin/jre21
 # 查看软连接
@@ -81,6 +81,8 @@ RCON 是一个协议，它允许你连接到 Minecraft 服务器，并且执行�
 从 Github 克隆 `Tiiffi/mcrcon`源到 `~/tools/mcron`目录：
 
 ```bash
+# 无法下载可以尝试使用代理 git config --global https.proxy http://127.0.0.1:7890
+# 自行切换代理地址，或使用其他github加速方式
 git clone https://github.com/Tiiffi/mcrcon.git ~/tools/mcrcon
 cd ~/tools/mcrcon
 make
@@ -101,11 +103,11 @@ Bug reports:
 
 ### 4.2 下载 Minecraft 服务器
 
-有一些 Minecraft 服务器 mods 例如 [Craftbukkit](https://getbukkit.org/download/craftbukkit) 或者 [Spigot](https://www.spigotmc.org/) ，允许你在你的服务器上添加特性（插件）以及定制，以及调整服务器设置。
+有一些 Minecraft 服务器 mods 例如 [**Craftbukkit**](https://getbukkit.org/download/craftbukkit) 或者 [**Spigot**](https://www.spigotmc.org/) ，允许你在你的服务器上添加特性（插件）以及定制，以及调整服务器设置。
 
 在这个指南中，我们将会安装最新的 Mojang 官方 vanilla 我的世界服务器。同样的指令，同样适合于其他的服务器 mods。
 
-去 [Minecraft 下载页面](https://minecraft.net/en-us/download/server/) 下载最新的 Minecraft 服务器 Java 压缩包（JAR）。在写作的时候，最新的版本是1.21.1。我们使用[Paper](https://papermc.io/downloads/paper)核心创建服务器。
+去 [Minecraft 下载页面](https://minecraft.net/en-us/download/server/) 下载最新的 Minecraft 服务器 Java 压缩包（JAR）。在写作的时候，最新的版本是1.21.1。我们使用[**Paper**](https://papermc.io/downloads/paper)核心创建服务器。
 
 使用 `wget`下载 jar 文件到~/server目录。
 
@@ -237,6 +239,8 @@ Ubuntu 附带防火墙工具 UFW。如果在你的系统上启用了防火墙，
 sudo ufw allow 25565/tcp
 ```
 
+云服务器需要去对应厂商的防火墙控制台配置规则
+
 ## 七、配置备份
 
 在这一节，我们创建一个备份 shell 脚本和计划任务，以便自动备份 Minecraft 服务器。
@@ -259,6 +263,7 @@ vim /opt/minecraft/tools/backup.sh
 #!/bin/bash
 
 function rcon {
+                                                          # 自处需修改登录密码
   /opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password "$1"
 }
 
