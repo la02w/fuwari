@@ -37,6 +37,7 @@ export const navBarConfig: NavBarConfig = {
   links: [
     LinkPreset.Home,
     LinkPreset.Archive,
+    LinkPreset.Links,
     LinkPreset.About,
     {
       name: 'GitHub',
@@ -67,6 +68,11 @@ export const profileConfig: ProfileConfig = {
       name: 'GitHub',
       icon: 'fa6-brands:github',
       url: 'https://github.com/la02w',
+    },
+    {
+      name: 'BiliBili',
+      icon: 'fa6-brands:bilibili',
+      url: 'https://space.bilibili.com/44232437',
     },
   ],
 }
