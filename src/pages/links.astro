@@ -4,6 +4,8 @@ import MainGridLayout from '../layouts/MainGridLayout.astro'
 
 import { getEntry } from 'astro:content'
 import Markdown from '@components/misc/Markdown.astro'
+import I18nKey from '@i18n/i18nKey'
+import { i18n } from '@i18n/translation'
 
 const linksPost = await getEntry('spec', 'links')
 
@@ -14,12 +16,14 @@ const items = [
     imgurl: 'https://alist.la02.cc/p/File/%E5%9B%BE%E7%89%87/avatar.jpg',
     desc: 'La02^',
     siteurl: 'https://la02.cc',
+    tags: ['Blog', '咨询'],
   },
   {
     title: 'La02^’sMisskey',
     imgurl: 'https://misskey.la02.cc/favicon.ico',
     desc: 'Misskey Website',
     siteurl: 'https://misskey.la02.cc',
+    tags: ['论坛', '交友', 'twitter like'],
   },
 ]
 ---
@@ -37,6 +41,18 @@ const items = [
                         <div class="grow w-full">
                             <div class="font-bold transition text-lg text-neutral-900 dark:text-neutral-100 mb-1">{item.title}</div>
                             <div class="text-50 text-sm font-medium">{item.desc}</div>
+                            <div class:list={["items-center", {"flex": true, "hidden md:flex" : false}]}>
+                                <div class="flex flex-row flex-nowrap items-center">
+                                    {(item.tags && item.tags.length > 0) && item.tags.map((tag,i) => (
+                                    <div class:list={[{"hidden": i==0}, "mx-1.5 text-[var(--meta-divider)] text-sm" ]}>
+                                        /
+                                    </div>
+                                    <span class="transition text-50 text-sm font-medium">
+                                        {tag}
+                                    </span>))}
+                                    {!(item.tags && item.tags.length > 0) && <div class="transition text-50 text-sm font-medium">{i18n(I18nKey.noTags)}</div>}
+                                </div>
+                            </div>
                         </div>
                         <a href={item.siteurl} target="_blank" rel="noopener noreferrer"class="flex btn-regular w-[3.25rem] rounded-lg bg-[var(--enter-btn-bg)] hover:bg-[var(--enter-btn-bg-hover)] active:bg-[var(--enter-btn-bg-active)] active:scale-95">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="transition text-[var(--primary)] text-4xl mx-auto iconify iconify--material-symbols" width="1em" height="1em" viewBox="0 0 24 24">
