@@ -22,7 +22,9 @@ sudo apt update
 sudo apt install git build-essential
 ```
 
-## 二、安装 Java 运行环境
+## 二、安装运行环境Java mcrcon
+
+### JAVA
 
 Minecraft 需要 Java 8 或者更高版本。 我们将会安装 Java 的 JRE 版本。这个版本更适合服务器应用，因为它有更少的依赖，并且使用更少的系统资源。
 
@@ -42,6 +44,37 @@ sudo ln -s /usr/local/jdk-21.0.4+7-jre/bin/java /usr/local/bin/jre21
 # 查看软连接
 ls -l /usr/local/bin/jre21
 ```
+
+### mcrcon
+
+RCON 是一个协议，它允许你连接到 Minecraft 服务器，并且执行命令。[mcron](https://github.com/tiiffi/mcrcon)是一个 RCON 客户端，使用 C 语言编写而成。
+
+我们将会从 Github 下载最新的源代码，并且构建 `mcrcon`二进制文件。
+
+从 Github 克隆 `Tiiffi/mcrcon`源到 `~/tools/mcron`目录：
+
+```bash
+# 无法下载可以尝试使用代理 git config --global https.proxy http://127.0.0.1:7890
+# 自行切换代理地址，或使用其他github加速方式
+sudo git clone https://github.com/Tiiffi/mcrcon.git /usr/local/mcrcon
+cd /usr/local/mcrcon
+make
+```
+
+一旦完成，验证 `mcrcon`编译成功，打印它的版本：
+
+```bash
+./mcrcon -v
+```
+
+```输出
+mcrcon 0.7.2 (built: Feb 22 2024 01:39:23) - https://github.com/Tiiffi/mcrcon
+Bug reports:
+        tiiffi+mcrcon at gmail
+        https://github.com/Tiiffi/mcrcon/issues/
+```
+
+
 
 ## 三、创建 Minecraft 用户
 
@@ -72,36 +105,7 @@ mkdir -p ~/{backups,tools,server}
 * `tools` 目录将会托管 `mcrcon`客户端和备份脚本。
 * `server`目录将会包含实际的 Minecraft 服务器和它的数据。
 
-### 4.1 下载并且编译 `mcrcon`
-
-RCON 是一个协议，它允许你连接到 Minecraft 服务器，并且执行命令。[mcron](https://github.com/tiiffi/mcrcon)是一个 RCON 客户端，使用 C 语言编写而成。
-
-我们将会从 Github 下载最新的源代码，并且构建 `mcrcon`二进制文件。
-
-从 Github 克隆 `Tiiffi/mcrcon`源到 `~/tools/mcron`目录：
-
-```bash
-# 无法下载可以尝试使用代理 git config --global https.proxy http://127.0.0.1:7890
-# 自行切换代理地址，或使用其他github加速方式
-git clone https://github.com/Tiiffi/mcrcon.git ~/tools/mcrcon
-cd ~/tools/mcrcon
-make
-```
-
-一旦完成，验证 `mcrcon`编译成功，打印它的版本：
-
-```bash
-./mcrcon -v
-```
-
-```输出
-mcrcon 0.7.2 (built: Feb 22 2024 01:39:23) - https://github.com/Tiiffi/mcrcon
-Bug reports:
-        tiiffi+mcrcon at gmail
-        https://github.com/Tiiffi/mcrcon/issues/
-```
-
-### 4.2 下载 Minecraft 服务器
+### 4.1 下载 Minecraft 服务器
 
 有一些 Minecraft 服务器 mods 例如 [**Craftbukkit**](https://getbukkit.org/download/craftbukkit) 或者 [**Spigot**](https://www.spigotmc.org/) ，允许你在你的服务器上添加特性（插件）以及定制，以及调整服务器设置。
 
@@ -115,7 +119,7 @@ Bug reports:
 wget https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/52/downloads/paper-1.21.1-52.jar -OP ~/server/server.jar
 ```
 
-### 4.3 配置 Minecraft 服务器
+### 4.2 配置 Minecraft 服务器
 
 一旦下载完成，切换到 `~/server`目录，并且启动 Minecraft 服务器：
 
@@ -195,7 +199,7 @@ PrivateDevices=true
 NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft/server
 ExecStart=jre21 -Xmx2048M -Xms1024M -jar server.jar nogui
-ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password stop
+ExecStop=mcrcon -H 127.0.0.1 -P 25575 -p strong-password stop
 
 [Install]
 WantedBy=multi-user.target
@@ -263,8 +267,8 @@ vim /opt/minecraft/tools/backup.sh
 #!/bin/bash
 
 function rcon {
-                                                          # 自处需修改登录密码
-  /opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password "$1"
+                                # 自处需修改登录密码
+  mcrcon -H 127.0.0.1 -P 25575 -p strong-password "$1"
 }
 
 rcon "save-off"
@@ -301,7 +305,7 @@ crontab -e
 想要访问 Minecraft 终端，使用 `mcrcon`工具。你需要指定主机，rcon 端口，rcon 密码并且使用 `-t`（启动 `mcrcon`终端模式）：
 
 ```bash
-/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password -t
+mcrcon -H 127.0.0.1 -P 25575 -p strong-password -t
 ```
 
 ```输出
