@@ -1,14 +1,14 @@
 ---
 title: Docker安装misskey
 published: 2024-09-06
-description: 'Docker安装misskey'
-image: ''
-tags: ['Docker','Linux','Web项目']
-category: '指南'
-draft: false 
+description: "Docker安装misskey"
+image: ""
+tags: ["Docker", "Linux", "Web项目"]
+category: "指南"
+draft: false
 ---
 
-## 配置docker-compose.yml文件
+## 配置 docker-compose.yml 文件
 
 ```yml
 services:
@@ -19,8 +19,8 @@ services:
     links:
       - db
       - redis
-#     - mcaptcha
-#     - meilisearch
+    #     - mcaptcha
+    #     - meilisearch
     depends_on:
       db:
         condition: service_healthy
@@ -262,7 +262,7 @@ redis:
 # ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE
 # ID SETTINGS AFTER THAT!
 
-id: 'aidx'
+id: "aidx"
 
 #   ┌────────────────┐
 #───┘ Error tracking └──────────────────────────────────────────
@@ -326,7 +326,6 @@ proxyRemoteFiles: true
 
 # Sign to ActivityPub GET request (default: true)
 signToActivityPubGet: true
-
 # For security reasons, uploading attachments from the intranet is prohibited,
 # but exceptions can be made from the following settings. Default value is "undefined".
 # Read changelog to learn more (Improvements of 12.90.0 (2021/09/04)).
@@ -337,6 +336,7 @@ signToActivityPubGet: true
 # Upload or download file size limits (bytes)
 #maxFileSize: 262144000
 ```
+
 ### .config/docker.env
 
 ```env

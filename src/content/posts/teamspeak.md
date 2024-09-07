@@ -1,11 +1,11 @@
 ---
 title: teamspeak
 published: 2024-08-27
-description: 'teamspeak5客户端安装教程'
-image: ''
-tags: ["软件","教程"]
-category: '指南'
-draft: false 
+description: "teamspeak5客户端安装教程"
+image: ""
+tags: ["软件", "教程"]
+category: "指南"
+draft: false
 ---
 
 # Teamspeak 安装连接服务器教程
@@ -14,7 +14,7 @@ draft: false
 
 官方[**下载地址**](https://teamspeak.com/zh-CN/downloads/)
 
-推荐下载teamspeak5，官方下载速度慢请开魔法或者[**网盘下载**](https://alist.la02.cc/d/%E7%A7%BB%E5%8A%A8/teamspeak-client.msi)(不保证为最新版)
+推荐下载 teamspeak5，官方下载速度慢请开魔法或者[**网盘下载**](https://alist.la02.cc/d/%E7%A7%BB%E5%8A%A8/teamspeak-client.msi)(不保证为最新版)
 
 ![](https://alist.la02.cc/d//File/图片/博客图库/无标题.png)
 
@@ -46,8 +46,8 @@ draft: false
 
 配置文件路径 `C:\Users\用户名\AppData\Roaming\TeamSpeak`
 
-TS3有身份信息导出功能，TS5可以导入。但TS5也仅有导入功能。请保存好身份信息
+TS3 有身份信息导出功能，TS5 可以导入。但 TS5 也仅有导入功能。请保存好身份信息
 
-返回仪表盘输入好友服务器地址开始TS语音之旅吧
+返回仪表盘输入好友服务器地址开始 TS 语音之旅吧
 
 ![](https://alist.la02.cc/d//File/图片/博客图库/Snipaste_2024-08-10_02-02-58.png)

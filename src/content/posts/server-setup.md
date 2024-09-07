@@ -1,25 +1,26 @@
 ---
 title: 服务器初始化
 published: 2024-09-06
-description: ''
-image: ''
+description: ""
+image: ""
 tags: []
-category: ''
-draft: false 
+category: ""
+draft: false
 ---
+
 # 云服务器服务器初始化
 
-## 创建普通bash用户
+## 创建普通 bash 用户
 
 ```bash
 useradd -m -s /bin/bash 新用户名
 passwd 新用户名
 ```
 
-* -m：创建用户的同时创建用户的家目录。
-* -s /bin/bash：指定用户登录时使用的shell，这里指定为bash。
+- -m：创建用户的同时创建用户的家目录。
+- -s /bin/bash：指定用户登录时使用的 shell，这里指定为 bash。
 
-### 设置sudo权限
+### 设置 sudo 权限
 
 ```bash
 visudo
@@ -73,15 +74,15 @@ deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe m
 EOF
 ```
 
-## 安装docker
+## 安装 docker
 
-### 添加docker密钥
+### 添加 docker 密钥
 
 ```bash
 curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
-### 添加阿里云docker软件源
+### 添加阿里云 docker 软件源
 
 ```bash
 echo \
@@ -95,12 +96,13 @@ echo \
 sudo apt update
 ```
 
-### 安装docker
+### 安装 docker
 
 ```bash
 sudo apt install docker-ce
 ```
-### 配置docker用户
+
+### 配置 docker 用户
 
 ```bash
 sudo usermod -aG docker $USER
@@ -108,7 +110,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-## 配置docker
+## 配置 docker
 
 ### 设置镜像加速
 
@@ -118,13 +120,13 @@ sudo vim /etc/docker/daemon.json
 
 ```json
 {
-    "registry-mirrors": [
-        "https://hub.uuuadc.top",
-        "https://docker.anyhub.us.kg",
-        "https://dockerhub.jobcher.com",
-        "https://dockerhub.icu",
-        "https://docker.ckyl.me",
-        "https://docker.awsl9527.cn"
-    ]
+  "registry-mirrors": [
+    "https://hub.uuuadc.top",
+    "https://docker.anyhub.us.kg",
+    "https://dockerhub.jobcher.com",
+    "https://dockerhub.icu",
+    "https://docker.ckyl.me",
+    "https://docker.awsl9527.cn"
+  ]
 }
 ```
