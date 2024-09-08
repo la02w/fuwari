@@ -1,10 +1,10 @@
 ---
 title: 服务器初始化
 published: 2024-09-06
-description: ""
+description: "云服务器Ubuntu初始化"
 image: ""
-tags: []
-category: ""
+tags: ["Linux", "服务器"]
+category: "指南"
 draft: false
 ---
 
@@ -28,7 +28,7 @@ visudo
 # 在 sudoers 文件中找到如下类似的一行：
 # root    ALL=(ALL:ALL) ALL
 # 在这一行下面，添加以下内容来授予用户 sudo 权限：
-user    ALL=(ALL:ALL) ALL
+新用户名    ALL=(ALL:ALL) ALL
 ```
 
 ## 设置主机名
@@ -41,37 +41,37 @@ bash
 
 ## 更新软件包
 
-```bash
-sudo apt update
-sudo apt upgrade
-```
-
 ### 切换软件镜像源
 
-> 快速配置
+[镜像仓库地址](https://mirror.nju.edu.cn/mirrorz-help/ubuntu/)
+
+![图 0](http://cdn.la02.cc/pichub/2024/09/08/1725776657.png)  
+
+选择一个镜像网站，例如我们使用清华源
+
+![图 1](http://cdn.la02.cc/pichub/2024/09/08/1725776746.png)  
+
+> 需要注意，从 Ubuntu 24.04 开始，Ubuntu 的软件源配置文件变更为 `DEB822 格式`，路径为 `/etc/apt/sources.list.d/ubuntu.sources`。
+
+24.04查看下方`DEB822 格式`的配置教程。
+
+按照教程修改`/etc/apt/sources.list.d/ubuntu.sources`配置文件即可
+
+**快速配置需要root用户**
+
+![图 2](http://cdn.la02.cc/pichub/2024/09/08/1725776946.png)  
+
+
+24.04之前使用`传统格式`需要切换对应Ubuntu版本。复制对应版本配置并修改`/etc/apt/sources.list`
+
+**快速配置需要root用户**
+
+![图 3](http://cdn.la02.cc/pichub/2024/09/08/1725777063.png)  
 
 ```bash
-# 使用sudo用户或者手动复制
-cat <<'EOF' > /etc/apt/sources.list
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirror.nju.edu.cn/ubuntu/ jammy main restricted universe multiverse
-# deb-src https://mirror.nju.edu.cn/ubuntu/ jammy main restricted universe multiverse
-deb https://mirror.nju.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-# deb-src https://mirror.nju.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-deb https://mirror.nju.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-# deb-src https://mirror.nju.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
-# deb https://mirror.nju.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
-# # deb-src https://mirror.nju.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
-
-deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-# deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-
-# 预发布软件源，不建议启用
-# deb https://mirror.nju.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
-# # deb-src https://mirror.nju.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
-EOF
+# 更新软件包
+sudo apt update
+sudo apt upgrade
 ```
 
 ## 安装 docker
