@@ -73,6 +73,50 @@ sudo apt update
 sudo apt upgrade
 ```
 
+## 设置 SSH 连接后终端汉化
+
+### 安装并启用中文
+
+```bash
+sudo apt install language-pack-zh-hans
+# 查看是否已开启中文
+cat /etc/locale.gen | grep zh_CN.UTF-8\ UTF-8
+# 输出结果行首有 # 则未开启
+# 修改文件，启用中文
+sudo sed -i '/^# zh_CN.UTF-8 UTF-8/s/^# //' /etc/locale.gen
+# 查看是否修改成功，行首没有 # 为开启成功
+cat /etc/locale.gen | grep zh_CN.UTF-8\ UTF-8
+# 重新生成 locale
+sudo locale-gen
+```
+
+### 配置环境变量，检查是否为 SSH 客户端
+
+```bash
+# 一键配置
+sudo sh -c "cat >> /etc/profile << 'EOF'
+# 检查是否为SSH会话
+if [ -n \"\$SSH_CLIENT\" ] || [ -n \"\$SSH_TTY\" ]; then
+    # 设置中文环境
+    export LC_ALL=zh_CN.UTF-8
+    export LANG=zh_CN.UTF-8
+    export LANGUAGE=zh_CN:zh
+fi
+EOF"
+# 或者手动复制
+# 检查是否为SSH会话
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # 设置中文环境
+    export LC_ALL=zh_CN.UTF-8
+    export LANG=zh_CN.UTF-8
+    export LANGUAGE=zh_CN:zh
+fi
+# 查看是否在末尾正确添加
+cat /etc/profile
+```
+
+重新进入终端后输入`env|grep zh_CN`查看是否正确配置
+
 ## 安装 docker
 
 ### 添加 docker 密钥
