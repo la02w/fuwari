@@ -16,7 +16,7 @@ export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
     url: '/archive/',
   },
   [LinkPreset.Links]: {
-    name: '友链',
+    name: i18n(I18nKey.links),
     url: '/links/',
-  },
+  }
 }

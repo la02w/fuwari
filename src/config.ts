@@ -8,20 +8,20 @@ import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
   title: 'La02^',
-  subtitle: 'La02\'s Blog WebSite',
+  subtitle: 'subtitle',
   lang: 'zh_CN',         // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko'
   themeColor: {
     hue: 250,         // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
     fixed: false,     // Hide the theme color picker for visitors
   },
   banner: {
-    enable: false,
-    src: 'assets/images/demo-banner.png',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    enable: true,
+    src: './assets/banner.jpg',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
     position: 'center', // Equivalent to object-position, defaults center
     credit: {
-      enable: false,         // Display the credit text of the banner image
-      text: '',              // Credit text to be displayed
-      url: ''                // (Optional) URL link to the original artwork or artist's page
+      enable: true,         // Display the credit text of the banner image
+      text: '空色天絵 / NEO TOKYO NOIR 01',              // Credit text to be displayed
+      url: 'https://www.pixiv.net/artworks/111024784'                // (Optional) URL link to the original artwork or artist's page
     }
   },
   favicon: [    // Leave this array empty to use the default favicon
@@ -48,9 +48,9 @@ export const navBarConfig: NavBarConfig = {
 }
 
 export const profileConfig: ProfileConfig = {
-  avatar: 'assets/images/demo-avatar2.png',  // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-  name: 'La02^',
-  bio: '个人博客网站~',
+  avatar: 'assets/images/demo-avatar-la02.png',  // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+  name: 'La02',
+  bio: 'La02 技术站',
   links: [
     {
       name: 'Twitter',
@@ -67,12 +67,12 @@ export const profileConfig: ProfileConfig = {
     {
       name: 'GitHub',
       icon: 'fa6-brands:github',
-      url: 'https://github.com/la02w',
+      url: 'https://github.com/yourname',
     },
     {
-      name: 'BiliBili',
+      name: 'Bilibili',
       icon: 'fa6-brands:bilibili',
-      url: 'https://space.bilibili.com/44232437',
+      url: 'https://bilibili.com',
     },
   ],
 }

@@ -45,28 +45,27 @@ bash
 
 [镜像仓库地址](https://mirror.nju.edu.cn/mirrorz-help/ubuntu/)
 
-![图 0](https://cdn.la02.cc/pichub/2024/09/08/1725776657.png)  
+![图 0](https://cdn.la02.cc/pichub/2024/09/08/1725776657.png)
 
 选择一个镜像网站，例如我们使用清华源
 
-![图 1](https://cdn.la02.cc/pichub/2024/09/08/1725776746.png)  
+![图 1](https://cdn.la02.cc/pichub/2024/09/08/1725776746.png)
 
 > 需要注意，从 Ubuntu 24.04 开始，Ubuntu 的软件源配置文件变更为 `DEB822 格式`，路径为 `/etc/apt/sources.list.d/ubuntu.sources`。
 
-24.04查看下方`DEB822 格式`的配置教程。
+24.04 查看下方`DEB822 格式`的配置教程。
 
 按照教程修改`/etc/apt/sources.list.d/ubuntu.sources`配置文件即可
 
-**快速配置需要root用户**
+**快速配置需要 root 用户**
 
-![图 2](https://cdn.la02.cc/pichub/2024/09/08/1725776946.png)  
+![图 2](https://cdn.la02.cc/pichub/2024/09/08/1725776946.png)
 
+24.04 之前使用`传统格式`需要切换对应 Ubuntu 版本。复制对应版本配置并修改`/etc/apt/sources.list`
 
-24.04之前使用`传统格式`需要切换对应Ubuntu版本。复制对应版本配置并修改`/etc/apt/sources.list`
+**快速配置需要 root 用户**
 
-**快速配置需要root用户**
-
-![图 3](https://cdn.la02.cc/pichub/2024/09/08/1725777063.png)  
+![图 3](https://cdn.la02.cc/pichub/2024/09/08/1725777063.png)
 
 ```bash
 # 更新软件包
