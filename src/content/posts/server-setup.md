@@ -1,8 +1,8 @@
 ---
 title: 服务器初始化
 published: 2024-09-06
-description: "云服务器Ubuntu初始化"
-image: ""
+description: "云服务器Ubuntu初始化。创建普通用户，设置主机名，配置镜像源，安装docker，SSH终端汉化"
+image: "https://cdn.la02.cc/pichub/2024/09/10/1725961889.png"
 tags: ["Linux", "服务器"]
 category: "指南"
 draft: false
@@ -153,7 +153,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-## 配置 docker
+### 配置 docker
 
 ### 设置镜像加速
 
