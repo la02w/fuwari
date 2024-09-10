@@ -4,8 +4,8 @@ import { profileConfig } from '../config'
 import { url } from '../utils/url-utils'
 ---
 
-<div class="card-base max-w-[var(--page-width)] min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
-    <div class="transition text-50 text-sm">
+<div class="card-base max-w-[var(--page-width)] min-h-[4.5rem] rounded-b-none mx-auto flex justify-between items-center px-6">
+    <div class="transition text-50 text-sm left-div">
         © 2024 {profileConfig.name}. All Rights Reserved. /
         <a class="link text-[var(--primary)] font-medium" target="_blank" href={url('rss.xml')}>RSS</a> /
         <a class="link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>Sitemap</a>
@@ -13,5 +13,13 @@ import { url } from '../utils/url-utils'
         Powered by
         <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build">Astro</a> &
         <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a>
+    </div>
+
+    <div class="transition text-50 text-sm right-div">
+        ICP备案
+        <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/recordQuery">闽ICP备2024064822号</a>
+        <br>
+        公安备案
+        <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/recordQuery">NULL</a>
     </div>
 </div>
