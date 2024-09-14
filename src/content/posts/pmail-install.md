@@ -77,3 +77,7 @@ acme.sh --install-cert -d la02.cc \
 --key-file       /home/ubuntu/docker/pmail/config/ssl/private.key  \
 --fullchain-file /home/ubuntu/docker/pmail/config/ssl/public.crt
 ```
+
+## 测试端口放行情况
+
+随便进入一个端口测试网站，输入 ip 地址或域名，测试 465 和 995 端口放行情况，必须要两个开放才算成功
