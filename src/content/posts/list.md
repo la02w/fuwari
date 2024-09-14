@@ -1,13 +1,201 @@
 ---
 title: 简易指南列表
 published: 2024-09-13
-description: "WSL系统"
+description: "Linux系统，WSL系统配置"
 image: ""
 tags: [Linux]
 category: "简易指南"
 draft: false
 lang: ""
 ---
+
+[Linux](#linux)\
+[WSL](#wsl)
+
+## Linux
+
+[初始化](#初始化配置)\
+[安装 docker](#安装-docker)
+
+### 初始化配置
+
+[添加用户](#添加用户)\
+[设置主机名](#设置主机名)\
+[更新软件包](#更新软件包)
+
+#### 添加用户
+
+创建普通 bash 用户 [**可选**]
+
+```bash
+useradd -m -s /bin/bash 新用户名
+passwd 新用户名
+```
+
+添加新用户拥有管理员权限
+
+修改 sudoers 文件，在 root 那一行下面添加用户
+
+```bash
+sudo sed -i '/^root/ a\用户名\tALL=(ALL:ALL) ALL' /etc/sudoers
+#例如
+sudo sed -i '/^root/ a\ubuntu\tALL=(ALL:ALL) ALL' /etc/sudoers
+```
+
+#### 设置主机名
+
+```bash
+sudo hostnamectl set-hostname 主机名
+# 刷新终端
+bash
+```
+
+#### 更新软件包
+
+<details>
+
+<summary>24.04 以下</summary>
+
+```bash
+sudo sh -c 'cat <<EOF > /etc/apt/sources.list
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs) main restricted universe multiverse
+# deb-src https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs) main restricted universe multiverse
+deb https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-updates main restricted universe multiverse
+# deb-src https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-updates main restricted universe multiverse
+deb https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-backports main restricted universe multiverse
+# deb-src https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-backports main restricted universe multiverse
+
+# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
+# deb https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-security main restricted universe multiverse
+# # deb-src https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-security main restricted universe multiverse
+
+deb http://security.ubuntu.com/ubuntu/ $(lsb_release -cs)-security main restricted universe multiverse
+# deb-src http://security.ubuntu.com/ubuntu/ $(lsb_release -cs)-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-proposed main restricted universe multiverse
+# # deb-src https://mirror.nju.edu.cn/ubuntu/ $(lsb_release -cs)-proposed main restricted universe multiverse
+EOF'
+```
+
+</details>
+
+<details>
+
+<summary>24.04 及以上</summary>
+
+```bash
+sudo sh -c 'cat <<'EOF' > /etc/apt/sources.list.d/ubuntu.sources
+Types: deb
+URIs: https://mirror.nju.edu.cn/ubuntu
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+# Types: deb-src
+# URIs: https://mirror.nju.edu.cn/ubuntu
+# Suites: noble noble-updates noble-backports
+# Components: main restricted universe multiverse
+# Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
+# Types: deb
+# URIs: https://mirror.nju.edu.cn/ubuntu
+# Suites: noble-security
+# Components: main restricted universe multiverse
+# Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+# # Types: deb-src
+# # URIs: https://mirror.nju.edu.cn/ubuntu
+# # Suites: noble-security
+# # Components: main restricted universe multiverse
+# # Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+Types: deb
+URIs: http://security.ubuntu.com/ubuntu/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+# Types: deb-src
+# URIs: http://security.ubuntu.com/ubuntu/
+# Suites: noble-security
+# Components: main restricted universe multiverse
+# Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+# 预发布软件源，不建议启用
+# Types: deb
+# URIs: https://mirror.nju.edu.cn/ubuntu
+# Suites: noble-proposed
+# Components: main restricted universe multiverse
+# Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+# # Types: deb-src
+# # URIs: https://mirror.nju.edu.cn/ubuntu
+# # Suites: noble-proposed
+# # Components: main restricted universe multiverse
+# # Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+EOF'
+```
+
+</details>
+
+### 安装 docker
+
+添加阿里云密钥
+
+```bash
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+载入软件源
+
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] http://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+更新软件源
+
+```bash
+sudo apt update
+```
+
+安装 docker
+
+```bash
+sudo apt install docker-ce
+```
+
+配置 docker 用户
+
+```bash
+sudo usermod -aG docker $USER
+# 更新用户组
+newgrp docker
+```
+
+设置镜像加速
+
+```bash
+sudo vim /etc/docker/daemon.json
+```
+
+```json
+{
+  "registry-mirrors": [
+    "https://hub.uuuadc.top",
+    "https://docker.anyhub.us.kg",
+    "https://dockerhub.jobcher.com",
+    "https://dockerhub.icu",
+    "https://docker.ckyl.me",
+    "https://docker.awsl9527.cn"
+  ]
+}
+```
 
 ## WSL
 
