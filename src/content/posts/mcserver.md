@@ -59,12 +59,14 @@ RCON 是一个协议，它允许你连接到 Minecraft 服务器，并且执行�
 sudo git clone https://github.com/Tiiffi/mcrcon.git /usr/local/mcrcon
 cd /usr/local/mcrcon
 make
+
 ```
 
 一旦完成，验证 `mcrcon`编译成功，打印它的版本：
 
 ```bash
 ./mcrcon -v
+sudo ln -s /usr/local/mcrcon/mcrcon /usr/local/bin/mcrcon
 ```
 
 ```输出
@@ -114,7 +116,7 @@ mkdir -p ~/{backups,tools,server}
 使用 `wget`下载 jar 文件到~/server 目录。
 
 ```bash
-wget https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/52/downloads/paper-1.21.1-52.jar -OP ~/server/server.jar
+wget https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/52/downloads/paper-1.21.1-52.jar -O ~/server/server.jar
 ```
 
 ### 4.2 配置 Minecraft 服务器
@@ -139,15 +141,14 @@ jre21 -Xmx2048M -Xms1024M -jar server.jar nogui
 打开 `eula.txt`文件，并且修改 `eula=false` 为 `eula=true`:
 
 ```bash
-vim ~/server/eula.txt
+sed -i 's/false/true/g' ~/server/eula.txt
 ```
 
-```txt
-# false修改为true
-eula=true
-```
+查看文件
 
-关闭并且保存文件。
+```bash
+cat ~/server/eula.txt
+```
 
 下一步，打开 `server.properties`文件，并且启动 `rcon`协议，并且设置 rcon 密码：
 
