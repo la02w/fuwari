@@ -152,6 +152,26 @@ const className = Astro.props.class
         background: var(--link-active)
         text-decoration-color: var(--link-active)
 
+    /* transformerNotationDiff */
+    .line.diff.add 
+      background-color: rgba(0,255,0,0.5);
+    
+    .line.diff.remove 
+      background-color: rgba(255,0,0,0.5);
+    
+    .line.diff.add:before 
+      content: '+ ';
+      opacity: 1;
+      color: white;
+    
+    .line.diff.remove:before 
+      content: '- ';
+      opacity: 1;
+      color: white;
+    /* transformerNotationWordHighlight */
+    .highlighted-word 
+      background-color: rgba(0,200,0,0.5);
+
     code
       font-family: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace
       background: var(--inline-code-bg)
@@ -184,12 +204,14 @@ const className = Astro.props.class
       border-radius: 0.75rem
       padding-left: 1.25rem
       padding-right: 1.25rem
+      
 
       code
         color: unset
         font-size: 0.875rem
         padding: 0
         background: none
+        font-size: px
 
         ::selection
           background: var(--codeblock-selection)

@@ -11,7 +11,7 @@ lang: ""
 
 更新软件包，安装相关软件
 
-```bash
+```bash /bzip2 inetutils-telnet/
 sudo apt update
 sudo apt upgrade
 sudo apt install bzip2 inetutils-telnet
@@ -19,7 +19,7 @@ sudo apt install bzip2 inetutils-telnet
 
 新建一个系统用户管理服务
 
-```bash
+```bash /teamspeak/
 sudo useradd -r -m -U -d /opt/teamspeak -s /bin/bash teamspeak
 sudo su - teamspeak
 ```
@@ -59,7 +59,7 @@ touch .ts3server_license_accepted
 `loginname= "serveradmin", password= "UuHIMeKW"`
 :::
 
-```bash
+```bash /password/
 telnet 127.0.0.1 10011
 login serveradmin password
 ```
@@ -74,7 +74,7 @@ serverlist
 
 修改 server_id=1 的服务器信息
 
-```bash
+```bash /19987/
 use sid=1 -virtual
 serveredit virtualserver_port=19987
 use sid=0
@@ -82,7 +82,7 @@ use sid=0
 
 修改文件传输端口
 
-```bash
+```bash /50033/
 instanceedit serverinstance_filetransfer_port=50033
 ```
 

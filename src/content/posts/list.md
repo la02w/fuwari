@@ -27,7 +27,7 @@ lang: ""
 
 创建普通 bash 用户 [**可选**]
 
-```bash
+```bash /新用户名/
 useradd -m -s /bin/bash 新用户名
 passwd 新用户名
 ```
@@ -36,7 +36,7 @@ passwd 新用户名
 
 修改 sudoers 文件，在 root 那一行下面添加用户
 
-```bash
+```bash /用户名/
 sudo sed -i '/^root/ a\用户名\tALL=(ALL:ALL) ALL' /etc/sudoers
 #例如
 sudo sed -i '/^root/ a\ubuntu\tALL=(ALL:ALL) ALL' /etc/sudoers
@@ -44,7 +44,7 @@ sudo sed -i '/^root/ a\ubuntu\tALL=(ALL:ALL) ALL' /etc/sudoers
 
 #### 设置主机名
 
-```bash
+```bash /主机名/
 sudo hostnamectl set-hostname 主机名
 # 刷新终端
 bash

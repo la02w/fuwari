@@ -16,7 +16,7 @@ Minecraft 一直是最流行的游戏之一。它是一个沙盒视频游戏，�
 
 安装必要的软件包来构建 mcrcon 工具：
 
-```bash
+```bash /git build-essential/
 sudo apt update
 sudo apt install git build-essential
 ```
@@ -31,7 +31,7 @@ Minecraft 需要 Java 8 或者更高版本。 我们将会安装 Java 的 JRE �
 
 进入 java 构建网站[**adoptium**](https://adoptium.net/zh-CN/temurin/releases/?package=jre&os=linux&arch=x64&version=21)，当前链接已设定 jre21、、linux、x64，可手动修改
 
-```bash
+```bash /username/ /host/ /jre21/
 # 下载完成后使用scp上传到服务器
 scp ./OpenJDK*.tar.gz username@host:~/
 # 移动到/usr/local/
@@ -59,7 +59,6 @@ RCON 是一个协议，它允许你连接到 Minecraft 服务器，并且执行�
 sudo git clone https://github.com/Tiiffi/mcrcon.git /usr/local/mcrcon
 cd /usr/local/mcrcon
 make
-
 ```
 
 一旦完成，验证 `mcrcon`编译成功，打印它的版本：
@@ -80,7 +79,7 @@ Bug reports:
 
 因为安全原因， Minecraft 不应该在 root 用户下运行。我们将会创建一个新的系统用户和用户组，用户主目录 `/opt/minecraft`。这个用户有最小权限，来运行 Minecraft 服务器：
 
-```bash
+```bash /minecraft/
 sudo useradd -r -m -U -d /opt/minecraft -s /bin/bash minecraft
 ```
 
@@ -123,7 +122,7 @@ wget https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/52/download
 
 一旦下载完成，切换到 `~/server`目录，并且启动 Minecraft 服务器：
 
-```shell
+```shell /2048M/ /1024M/
 cd ~/server
 jre21 -Xmx2048M -Xms1024M -jar server.jar nogui
 ```
