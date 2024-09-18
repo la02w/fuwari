@@ -9,19 +9,19 @@ draft: false
 lang: ""
 ---
 
-[Linux](#linux)\
-[WSL](#wsl)
+- [Linux](#linux)
+  - [初始化配置](#初始化配置)
+    - [添加用户](#添加用户)
+    - [设置主机名](#设置主机名)
+    - [更新软件包](#更新软件包)
+  - [安装 docker](#安装-docker)
+- [WSL](#wsl)
+  - [安装 WSL 系统](#安装-wsl-系统)
+  - [使用 WSL ubuntu 系统配置 Arch 系统](#使用-wsl-ubuntu-系统配置-arch-系统)
 
 ## Linux
 
-[初始化](#初始化配置)\
-[安装 docker](#安装-docker)
-
 ### 初始化配置
-
-[添加用户](#添加用户)\
-[设置主机名](#设置主机名)\
-[更新软件包](#更新软件包)
 
 #### 添加用户
 
@@ -198,9 +198,6 @@ sudo vim /etc/docker/daemon.json
 ```
 
 ## WSL
-
-[安装 WSL](#安装-wsl-系统)\
-[安装 Arch 系统](#使用-wsl-ubuntu-系统配置-arch-系统)
 
 ### 安装 WSL 系统
 

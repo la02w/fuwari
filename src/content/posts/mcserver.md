@@ -8,6 +8,21 @@ category: "指南"
 draft: false
 ---
 
+- [一、前提](#一前提)
+- [二、安装运行环境 Java mcrcon](#二安装运行环境-java-mcrcon)
+  - [JAVA](#java)
+  - [mcrcon](#mcrcon)
+- [三、创建 Minecraft 用户](#三创建-minecraft-用户)
+- [四、在 Ubuntu 上安装 Minecraft](#四在-ubuntu-上安装-minecraft)
+  - [4.1 下载 Minecraft 服务器](#41-下载-minecraft-服务器)
+  - [4.2 配置 Minecraft 服务器](#42-配置-minecraft-服务器)
+- [五、创建 Systemd 单元文件](#五创建-systemd-单元文件)
+- [六、调整防火墙](#六调整防火墙)
+- [七、配置备份](#七配置备份)
+- [八、访问 Minecraft 终端](#八访问-minecraft-终端)
+- [九、总结](#九总结)
+- [十、基岩版](#十基岩版)
+
 Minecraft 一直是最流行的游戏之一。它是一个沙盒视频游戏，用户可以体验无限的世界，并且可以构建不同的结构，从简单的房子到高耸的摩天大楼。这个指南解释如何在 Ubuntu 上如何搭建我的世界服务器。我们将会使用 Systemd 来运行我的世界服务器以及 mcrcon 工具来连接运行的实例。我们也将向你展示如何创建一个计划任务，执行常规的服务器备份。
 
 ## 一、前提

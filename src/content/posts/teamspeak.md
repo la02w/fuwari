@@ -8,6 +8,8 @@ category: "指南"
 draft: false
 ---
 
+- [Teamspeak 安装连接服务器教程](#teamspeak-安装连接服务器教程)
+
 # Teamspeak 安装连接服务器教程
 
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=112933598136285&bvid=BV18QYge9E7s&cid=500001644170448&p=1&high\_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0"></iframe>

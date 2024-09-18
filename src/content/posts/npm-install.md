@@ -9,6 +9,19 @@ draft: false
 lang: ""
 ---
 
+- [前言](#前言)
+- [安装 docker](#安装-docker)
+- [安装 Nginx Proxy Manager](#安装-nginx-proxy-manager)
+  - [首先，我们需要创建一个目录来存放 Nginx Proxy Manager 的相关配置。](#首先我们需要创建一个目录来存放-nginx-proxy-manager-的相关配置)
+  - [创建 docker-compose.yml](#创建-docker-composeyml)
+  - [启动服务](#启动服务)
+  - [登录并配置反向代理](#登录并配置反向代理)
+    - [配置 DNS 域名解析](#配置-dns-域名解析)
+    - [创建反向代理并获取免费证书](#创建反向代理并获取免费证书)
+  - [泛域名证书](#泛域名证书)
+    - [生成泛域名证书](#生成泛域名证书)
+    - [上传泛域名证书](#上传泛域名证书)
+
 ## 前言
 
 :::tip
