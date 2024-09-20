@@ -1,30 +1,14 @@
 ---
 title: 服务器初始化
 published: 2024-09-06
-description: "云服务器Ubuntu初始化。创建普通用户，设置主机名，配置镜像源，安装docker，SSH终端汉化"
-image: "https://cdn.la02.cc/pichub/2024/09/10/1725961889.png"
-tags: ["Linux", "服务器"]
-category: "指南"
+description: '云服务器Ubuntu初始化。创建普通用户，设置主机名，配置镜像源，安装docker，SSH终端汉化'
+image: 'https://cdn.la02.cc/pichub/2024/09/10/1725961889.png'
+tags: ['Linux', '服务器']
+category: '指南'
 draft: false
 ---
 
-- [云服务器服务器初始化](#云服务器服务器初始化)
-  - [创建普通 bash 用户](#创建普通-bash-用户)
-    - [设置 sudo 权限](#设置-sudo-权限)
-  - [设置主机名](#设置主机名)
-  - [更新软件包](#更新软件包)
-    - [切换软件镜像源](#切换软件镜像源)
-  - [设置 SSH 连接后终端汉化](#设置-ssh-连接后终端汉化)
-    - [安装并启用中文](#安装并启用中文)
-    - [配置环境变量，检查是否为 SSH 客户端](#配置环境变量检查是否为-ssh-客户端)
-  - [安装 docker](#安装-docker)
-    - [添加 docker 密钥](#添加-docker-密钥)
-    - [添加阿里云 docker 软件源](#添加阿里云-docker-软件源)
-    - [更新软件源](#更新软件源)
-    - [安装 docker](#安装-docker-1)
-    - [配置 docker 用户](#配置-docker-用户)
-    - [配置 docker](#配置-docker)
-    - [设置镜像加速](#设置镜像加速)
+## 目录
 
 # 云服务器服务器初始化
 

@@ -1,23 +1,15 @@
 ---
 title: 简易指南列表
 published: 2024-09-13
-description: "Linux系统，WSL系统配置"
-image: ""
+description: 'Linux系统，WSL系统配置'
+image: ''
 tags: [Linux]
-category: "简易指南"
+category: '简易指南'
 draft: false
-lang: ""
+lang: ''
 ---
 
-- [Linux](#linux)
-  - [初始化配置](#初始化配置)
-    - [添加用户](#添加用户)
-    - [设置主机名](#设置主机名)
-    - [更新软件包](#更新软件包)
-  - [安装 docker](#安装-docker)
-- [WSL](#wsl)
-  - [安装 WSL 系统](#安装-wsl-系统)
-  - [使用 WSL ubuntu 系统配置 Arch 系统](#使用-wsl-ubuntu-系统配置-arch-系统)
+## 目录
 
 ## Linux
 

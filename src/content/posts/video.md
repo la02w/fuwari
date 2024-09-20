@@ -7,7 +7,7 @@ category: 示例
 draft: true
 ---
 
-只需复制YouTube或其他平台的嵌入代码，然后粘贴到markdown文件中。
+只需复制 YouTube 或其他平台的嵌入代码，然后粘贴到 markdown 文件中。
 
 ```yaml
 ---

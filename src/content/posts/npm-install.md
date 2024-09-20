@@ -1,26 +1,15 @@
 ---
 title: 使用Nginx Proxy Manager配置反向代理
 published: 2024-09-11
-description: "反向代理安装配置教程"
-image: "https://cdn.la02.cc/pichub/2024/09/11/1726017896.png"
+description: '反向代理安装配置教程'
+image: 'https://cdn.la02.cc/pichub/2024/09/11/1726017896.png'
 tags: [Docker, Web项目, Linux]
 category: 指南
 draft: false
-lang: ""
+lang: ''
 ---
 
-- [前言](#前言)
-- [安装 docker](#安装-docker)
-- [安装 Nginx Proxy Manager](#安装-nginx-proxy-manager)
-  - [首先，我们需要创建一个目录来存放 Nginx Proxy Manager 的相关配置。](#首先我们需要创建一个目录来存放-nginx-proxy-manager-的相关配置)
-  - [创建 docker-compose.yml](#创建-docker-composeyml)
-  - [启动服务](#启动服务)
-  - [登录并配置反向代理](#登录并配置反向代理)
-    - [配置 DNS 域名解析](#配置-dns-域名解析)
-    - [创建反向代理并获取免费证书](#创建反向代理并获取免费证书)
-  - [泛域名证书](#泛域名证书)
-    - [生成泛域名证书](#生成泛域名证书)
-    - [上传泛域名证书](#上传泛域名证书)
+## 目录
 
 ## 前言
 
@@ -54,13 +43,13 @@ vim docker-compose.yml
 ```yml
 services:
   app:
-    image: "chishin/nginx-proxy-manager-zh:release"
+    image: 'chishin/nginx-proxy-manager-zh:release'
     restart: unless-stopped
     ports:
       # These ports are in format <host-port>:<container-port>
-      - "80:80" # Public HTTP Port
-      - "443:443" # Public HTTPS Port
-      - "81:81" # Admin Web Port
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '81:81' # Admin Web Port
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
 

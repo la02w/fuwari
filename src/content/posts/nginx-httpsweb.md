@@ -1,20 +1,15 @@
 ---
 title: 使用nginx配置一个HTTPSWeb站点
 published: 2024-09-12
-description: "使用nginx配置一个HTTPSWeb站点"
-image: ""
+description: '使用nginx配置一个HTTPSWeb站点'
+image: ''
 tags: [Linux, Docker, Web项目]
-category: "指南"
+category: '指南'
 draft: false
-lang: ""
+lang: ''
 ---
 
-- [创建目录并进入](#创建目录并进入)
-- [创建 docker-compose.yml 文件](#创建-docker-composeyml-文件)
-  - [创建 `Nginx` 配置文件和 `HTML` 首页文件](#创建-nginx-配置文件和-html-首页文件)
-  - [为 nginx 安装证书](#为-nginx-安装证书)
-- [编写 nginx 配置文件](#编写-nginx-配置文件)
-- [启动测试](#启动测试)
+## 目录
 
 :::tip[注意]
 本文档中的代码顺序可能与视频教程中的顺序不完全一致，请根据视频中的操作步骤仔细核对代码的作用。
@@ -39,8 +34,8 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "80:80"
-      - "443:443"
+      - '80:80'
+      - '443:443'
     volumes:
       - ./ssl:/etc/nginx/ssl
       - ./html:/usr/share/nginx/html

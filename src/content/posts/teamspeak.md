@@ -1,14 +1,14 @@
 ---
 title: teamspeak
 published: 2024-08-27
-description: "teamspeak5客户端安装教程"
-image: ""
-tags: ["软件", "教程"]
-category: "指南"
+description: 'teamspeak5客户端安装教程'
+image: ''
+tags: ['软件', '教程']
+category: '指南'
 draft: false
 ---
 
-- [Teamspeak 安装连接服务器教程](#teamspeak-安装连接服务器教程)
+## 目录
 
 # Teamspeak 安装连接服务器教程
 

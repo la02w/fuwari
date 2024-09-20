@@ -22,6 +22,7 @@ import {
   transformerNotationDiff,
   transformerMetaWordHighlight
 } from '@shikijs/transformers';
+import remarkToc from 'remark-toc'
 
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250
@@ -73,7 +74,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
+    remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode, [remarkToc, { maxDepth: 4,heading: '目录' }]],
     rehypePlugins: [
       rehypeKatex,
       rehypeSlug,

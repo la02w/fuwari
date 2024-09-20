@@ -1,18 +1,14 @@
 ---
 title: Docker安装misskey
 published: 2024-09-06
-description: "Docker安装misskey"
-image: ""
-tags: ["Docker", "Linux", "Web项目"]
-category: "指南"
+description: 'Docker安装misskey'
+image: ''
+tags: ['Docker', 'Linux', 'Web项目']
+category: '指南'
 draft: false
 ---
 
-- [配置 docker-compose.yml 文件](#配置-docker-composeyml-文件)
-- [配置文件](#配置文件)
-  - [.config/default.yml](#configdefaultyml)
-  - [.config/docker.env](#configdockerenv)
-- [启动](#启动)
+## 目录
 
 ## 配置 docker-compose.yml 文件
 
@@ -33,7 +29,7 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "3030:3030"
+      - '3030:3030'
     networks:
       - internal_network
       - external_network
@@ -52,7 +48,7 @@ services:
     volumes:
       - ./redis:/data
     healthcheck:
-      test: "redis-cli ping"
+      test: 'redis-cli ping'
       interval: 5s
       retries: 20
 
@@ -67,7 +63,7 @@ services:
     volumes:
       - ./db:/var/lib/postgresql/data
     healthcheck:
-      test: "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"
+      test: 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB'
       interval: 5s
       retries: 20
 
@@ -268,7 +264,7 @@ redis:
 # ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE
 # ID SETTINGS AFTER THAT!
 
-id: "aidx"
+id: 'aidx'
 
 #   ┌────────────────┐
 #───┘ Error tracking └──────────────────────────────────────────

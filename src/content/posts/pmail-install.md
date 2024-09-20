@@ -1,19 +1,15 @@
 ---
 title: 使用PMail创建SSL邮局(465 995)
 published: 2024-09-11
-description: ""
-image: ""
+description: ''
+image: ''
 tags: [Linux, Web项目, Docker]
 category: 指南
 draft: false
-lang: ""
+lang: ''
 ---
 
-- [前言](#前言)
-- [创建域名解析](#创建域名解析)
-- [配置反向代理](#配置反向代理)
-- [创建 docker-compose.yml 文件](#创建-docker-composeyml-文件)
-- [测试端口放行情况](#测试端口放行情况)
+## 目录
 
 ## 前言
 
@@ -54,14 +50,14 @@ lang: ""
 services:
   pmail:
     container_name: pmail
-    image: "ghcr.nju.edu.cn/jinnrry/pmail:latest"
+    image: 'ghcr.nju.edu.cn/jinnrry/pmail:latest'
     volumes:
-      - "./config:/work/config"
+      - './config:/work/config'
     ports:
-      - "465:465"
-      - "8082:80"
-      - "995:995"
-    user: "${DOCKER_USER}"
+      - '465:465'
+      - '8082:80'
+      - '995:995'
+    user: '${DOCKER_USER}'
 ```
 
 启动项目`docker compose up -d`

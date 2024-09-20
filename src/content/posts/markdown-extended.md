@@ -5,15 +5,18 @@ description: '了解更多关于Fuwari中的Markdown功能'
 image: ''
 tags: [Markdown, Fuwari]
 category: '示例'
-draft: true 
+draft: true
 ---
 
-## GitHub仓库卡片
-您可以添加动态卡片，链接到GitHub仓库。页面加载时，仓库信息将从GitHub API中提取。
+## 目录
+
+## GitHub 仓库卡片
+
+您可以添加动态卡片，链接到 GitHub 仓库。页面加载时，仓库信息将从 GitHub API 中提取。
 
 ::github{repo="Fabrizz/MMM-OnSpotify"}
 
-使用代码 `::github{repo="<所有者>/<仓库>"}` 创建一个GitHub仓库卡片。
+使用代码 `::github{repo="<所有者>/<仓库>"}` 创建一个 GitHub 仓库卡片。
 
 ```markdown
 ::github{repo="saicaca/fuwari"}
@@ -65,8 +68,7 @@ draft: true
 :::
 ```
 
-> [!TIP]
-> [The GitHub syntax](https://github.com/orgs/community/discussions/16925) 也得到了支持。
+> [!TIP] > [The GitHub syntax](https://github.com/orgs/community/discussions/16925) 也得到了支持。
 
 ```
 > [!NOTE]

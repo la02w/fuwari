@@ -1,13 +1,15 @@
 ---
 title: fuwari 博客修改教程
 published: 2024-04-01
-description: ""
-image: ""
+description: ''
+image: ''
 tags: [Fuwari]
 category: 指南
 draft: false
-lang: ""
+lang: ''
 ---
+
+## 目录
 
 ## 修改 astro.config.mjs
 
