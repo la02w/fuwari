@@ -1,9 +1,10 @@
-# 关于
+## 关于
+
+### [kaf.im](https://kaf.im) 床图还原项目 施工中
 
 ::github{repo="la02w/pichub"}
 
-> ### 本站点所使用图片的来源
+> ### 可公开情报
 >
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+> 游戏宅\
+> FF14 Minecraft
