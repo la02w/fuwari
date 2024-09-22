@@ -53,26 +53,19 @@ export const profileConfig: ProfileConfig = {
   bio: 'La02 技术站',
   links: [
     {
-      name: 'Twitter',
-      icon: 'fa6-brands:twitter',       // Visit https://icones.js.org/ for icon codes
-                                        // You will need to install the corresponding icon set if it's not already included
-                                        // `pnpm add @iconify-json/<icon-set-name>`
-      url: 'https://twitter.com',
-    },
-    {
       name: 'Steam',
       icon: 'fa6-brands:steam',
-      url: 'https://store.steampowered.com',
+      url: 'https://steamcommunity.com/profiles/76561198890059310',
     },
     {
       name: 'GitHub',
       icon: 'fa6-brands:github',
-      url: 'https://github.com/yourname',
+      url: 'https://github.com/la02w',
     },
     {
       name: 'Bilibili',
       icon: 'fa6-brands:bilibili',
-      url: 'https://bilibili.com',
+      url: 'https://space.bilibili.com/44232437',
     },
   ],
 }
